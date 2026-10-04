@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="description" content="Ivan Beauty Salon — Ottawa. Reviews, Instagram, call, directions and website in one place.">
+  <title>Ivan Beauty Salon | Ottawa</title>
+
+  <style>
+    :root {
+      --black:#090909;
+      --black-2:#121212;
+      --gold:#e1b83f;
+      --gold-light:#f4dc75;
+      --cream:#f7f1e8;
+      --text:#faf7f1;
+      --muted:#b9b2a9;
+      --line:rgba(255,255,255,.11);
+      --max:720px;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+    body {
+      margin:0;
+      background:var(--black);
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height:100vh;
+    }
+
+    a { color:inherit; }
+    img { display:block; max-width:100%; }
+
+    .page {
+      width:min(100%, var(--max));
+      margin:0 auto;
+      overflow:hidden;
+      background:var(--black);
+      min-height:100vh;
+    }
+
+    .hero {
+      position:relative;
+      min-height:560px;
+      display:flex;
+      align-items:flex-end;
+      isolation:isolate;
+    }
+
+    .hero::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.18) 0%, rgba(0,0,0,.28) 36%, rgba(0,0,0,.92) 100%),
+        url("assets/photo-5.webp") center 36% / cover no-repeat;
+      z-index:-2;
+    }
+
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(125deg, rgba(225,184,63,.08), transparent 42%);
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    .hero-content {
+      width:100%;
+      padding:28px 22px 30px;
+      text-align:center;
+    }
+
+    .logo {
+      width:min(82vw, 360px);
+      margin:0 auto 16px;
+      filter:drop-shadow(0 7px 20px rgba(0,0,0,.38));
+    }
+
+    .eyebrow {
+      margin:0 0 8px;
+      color:var(--gold-light);
+      font-size:.76rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:750;
+    }
+
+    h1 {
+      margin:0;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(2rem, 8vw, 3.25rem);
+      font-weight:500;
+      line-height:1.02;
+      letter-spacing:-.035em;
+    }
+
+    .sub {
+      margin:12px auto 0;
+      max-width:430px;
+      color:#ddd7cf;
+      line-height:1.55;
+      font-size:.96rem;
+    }
+
+    .actions {
+      display:grid;
+      gap:11px;
+      padding:22px;
+      background:linear-gradient(180deg,#0a0a0a,#0f0f0f);
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    .btn {
+      min-height:60px;
+      border-radius:14px;
+      padding:15px 18px;
+      display:flex;
+      align-items:center;
+      gap:13px;
+      text-decoration:none;
+      border:1px solid var(--line);
+      background:#151515;
+      transition:transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .btn:hover {
+      border-color:rgba(225,184,63,.55);
+      background:#191919;
+    }
+    .btn:active { transform:scale(.992); }
+    .btn:focus-visible {
+      outline:3px solid var(--gold-light);
+      outline-offset:3px;
+    }
+
+    .btn.primary {
+      background:linear-gradient(135deg,#f0cf60,#c69321);
+      color:#17120a;
+      border-color:transparent;
+      font-weight:850;
+      box-shadow:0 12px 30px rgba(209,161,34,.18);
+    }
+
+    .icon {
+      width:36px;
+      height:36px;
+      flex:0 0 36px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.07);
+      font-size:1rem;
+    }
+    .primary .icon { background:rgba(0,0,0,.10); }
+
+    .btn-text {
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      min-width:0;
+    }
+    .btn-title {
+      font-weight:780;
+      font-size:1rem;
+      line-height:1.2;
+    }
+    .btn-note {
+      margin-top:3px;
+      font-size:.78rem;
+      color:var(--muted);
+      line-height:1.25;
+    }
+    .primary .btn-note { color:rgba(23,18,10,.66); }
+
+    .arrow {
+      margin-left:auto;
+      opacity:.72;
+      font-size:1.18rem;
+    }
+
+    .section {
+      padding:30px 22px;
+      border-top:1px solid var(--line);
+    }
+
+    .section-head {
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:17px;
+    }
+
+    h2 {
+      margin:0;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.65rem;
+      font-weight:500;
+      letter-spacing:-.02em;
+    }
+
+    .insta-link {
+      color:var(--gold-light);
+      text-decoration:none;
+      font-size:.82rem;
+      font-weight:750;
+    }
+
+    .gallery {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+    }
+
+    .gallery figure {
+      margin:0;
+      overflow:hidden;
+      border-radius:12px;
+      background:#181818;
+      aspect-ratio:4/5;
+    }
+    .gallery figure:first-child {
+      grid-column:1/-1;
+      aspect-ratio:16/11;
+    }
+
+    .gallery img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .gallery figure:first-child img { object-position:center 44%; }
+
+    .location {
+      display:grid;
+      gap:12px;
+      padding:22px;
+      margin:0 22px 30px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#111;
+    }
+
+    .location-label {
+      color:var(--gold-light);
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-weight:800;
+    }
+    .location strong {
+      font-size:1.03rem;
+      line-height:1.4;
+    }
+    .location p {
+      margin:0;
+      color:var(--muted);
+      font-size:.9rem;
+      line-height:1.45;
+    }
+    .location-links {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:4px;
+    }
+    .mini {
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:9px 12px;
+      text-decoration:none;
+      font-size:.82rem;
+      font-weight:720;
+      background:#171717;
+    }
+
+    footer {
+      border-top:1px solid var(--line);
+      padding:23px 22px 100px;
+      text-align:center;
+      color:#8f8982;
+      font-size:.75rem;
+      line-height:1.6;
+    }
+
+    .sticky {
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:max(12px, env(safe-area-inset-bottom));
+      width:min(calc(100% - 24px), 680px);
+      z-index:20;
+    }
+    .sticky a {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:56px;
+      border-radius:15px;
+      text-decoration:none;
+      font-weight:850;
+      background:linear-gradient(135deg,#f1d36b,#c89520);
+      color:#17120a;
+      box-shadow:0 12px 35px rgba(0,0,0,.42);
+    }
+
+    @media (min-width:700px) {
+      body {
+        background:
+          radial-gradient(circle at top, #272015 0, #101010 45%, #080808 100%);
+        padding:28px 0;
+      }
+      .page {
+        border-radius:24px;
+        box-shadow:0 25px 90px rgba(0,0,0,.48);
+        border:1px solid rgba(255,255,255,.07);
+      }
+      .sticky { bottom:22px; }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      * { scroll-behavior:auto!important; transition:none!important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-label="Ivan Beauty Salon">
+      <div class="hero-content">
+        <img class="logo" src="assets/ivan-logo.png" alt="Ivan Beauty Salon">
+        <p class="eyebrow">Ottawa · Hemlock Road</p>
+        <h1>Beauty, hair & bridal</h1>
+        <p class="sub">Connect with Ivan Beauty Salon, leave a review, call, get directions or explore their latest work.</p>
+      </div>
+    </section>
+
+    <section class="actions" aria-label="Quick links">
+      <a class="btn primary" href="https://www.google.com/maps/place/Ivan+Beauty+Salon/@45.4528318,-75.6334302,21z/data=!4m8!3m7!1s0x4cce1b002a344b11:0x7ca6ac0af7db947c!8m2!3d45.4528318!4d-75.6334302!9m1!1b1!16s%2Fg%2F11z52fnj_x?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true">★</span>
+        <span class="btn-text">
+          <span class="btn-title">Leave a Google Review</span>
+          <span class="btn-note">Share your experience with Ivan Beauty Salon</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="btn" href="https://www.instagram.com/ivanbeautysalon/" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true">◎</span>
+        <span class="btn-text">
+          <span class="btn-title">Instagram</span>
+          <span class="btn-note">@ivanbeautysalon</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="btn" href="tel:+16139097447">
+        <span class="icon" aria-hidden="true">☎</span>
+        <span class="btn-text">
+          <span class="btn-title">Call the Salon</span>
+          <span class="btn-note">(613) 909-7447</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="btn" href="https://www.google.com/maps/place/Ivan+Beauty+Salon/@45.4528318,-75.6334302,21z/data=!4m8!3m7!1s0x4cce1b002a344b11:0x7ca6ac0af7db947c!8m2!3d45.4528318!4d-75.6334302!9m1!1b1!16s%2Fg%2F11z52fnj_x?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true">⌖</span>
+        <span class="btn-text">
+          <span class="btn-title">Get Directions</span>
+          <span class="btn-note">1340 Hemlock Rd #115, Ottawa, ON</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="btn" href="https://ivanbeauty.com/" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true">↗</span>
+        <span class="btn-text">
+          <span class="btn-title">Visit Website</span>
+          <span class="btn-note">Services, bridal and salon information</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+    </section>
+
+    <section class="section" aria-labelledby="work-title">
+      <div class="section-head">
+        <h2 id="work-title">Recent work</h2>
+        <a class="insta-link" href="https://www.instagram.com/ivanbeautysalon/" target="_blank" rel="noopener noreferrer">View Instagram →</a>
+      </div>
+
+      <div class="gallery">
+        <figure><img src="assets/photo-1.webp" alt="Styled long curled brunette hair at Ivan Beauty Salon" loading="lazy"></figure>
+        <figure><img src="assets/photo-2.webp" alt="Layered highlighted hairstyle at Ivan Beauty Salon" loading="lazy"></figure>
+        <figure><img src="assets/photo-3.webp" alt="Short bob haircut at Ivan Beauty Salon" loading="lazy"></figure>
+        <figure><img src="assets/photo-4.webp" alt="Client hairstyle outside Ivan Beauty Salon" loading="lazy"></figure>
+        <figure><img src="assets/photo-5.webp" alt="Blonde waves styled at Ivan Beauty Salon" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="location" aria-label="Salon location">
+      <span class="location-label">Ivan Beauty Salon · Location 2</span>
+      <strong>1340 Hemlock Rd #115, Ottawa, ON</strong>
+      <p>Ottawa, Ontario</p>
+      <div class="location-links">
+        <a class="mini" href="https://www.google.com/maps/place/Ivan+Beauty+Salon/@45.4528318,-75.6334302,21z/data=!4m8!3m7!1s0x4cce1b002a344b11:0x7ca6ac0af7db947c!8m2!3d45.4528318!4d-75.6334302!9m1!1b1!16s%2Fg%2F11z52fnj_x?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+        <a class="mini" href="tel:+16139097447">Call (613) 909-7447</a>
+      </div>
+    </section>
+
+    <footer>
+      Ivan Beauty Salon · Ottawa<br>
+      Growth page demo by Tap &amp; Grow Ottawa · @tap1andgrow
+    </footer>
+  </main>
+
+  <div class="sticky">
+    <a href="https://www.google.com/maps/place/Ivan+Beauty+Salon/@45.4528318,-75.6334302,21z/data=!4m8!3m7!1s0x4cce1b002a344b11:0x7ca6ac0af7db947c!8m2!3d45.4528318!4d-75.6334302!9m1!1b1!16s%2Fg%2F11z52fnj_x?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">★ &nbsp; Leave a Google Review</a>
+  </div>
+</body>
+</html>
