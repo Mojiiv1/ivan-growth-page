@@ -95,3 +95,16 @@ h2,h3{line-height:1.12}
   a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid Highlight}
   .button,.theme,.menu-toggle,.lightbox button,.mobile-bar{border-color:CanvasText}
 }
+
+
+/* Self-contained contact-page refinements */
+.visit-card{align-self:start;border-top:1px solid var(--line);padding-top:1.5rem;max-width:30rem}
+.visit-card h3{font-size:clamp(1.5rem,2.2vw,2rem);margin-bottom:.75rem}
+.visit-card .muted{margin-bottom:1rem}
+.contact-number{margin-top:1.25rem}
+.location-full .actions{margin-top:1.5rem}
+.location-full address{line-height:1.6}
+@media(max-width:760px){
+  .visit-card{padding-top:1.25rem}
+  .location-full .actions{align-items:flex-start}
+}
