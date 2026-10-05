@@ -52,3 +52,19 @@ Verification status:
 - GitHub Pages build checks passed for the current revision.
 - The repository accessibility/browser QA workflow was triggered automatically and is still running at the time of this update.
 - This document does not claim the new revision passed Playwright/axe until that workflow completes.
+
+
+## Self-contained content cleanup — 2026-10-04
+
+User-facing pages were simplified so the demo does not depend on the previous Ivan website for uncertain details:
+- Removed all ivanbeauty.com links from the five public demo pages.
+- Removed published opening-hour tables and the uncertain Hemlock Tuesday schedule.
+- Removed online-booking claims and links.
+- Removed unconfirmed hijab-space claims from the Home, Services and Locations pages.
+- Removed bridal starting prices and old-menu references.
+- Kept the two Ottawa addresses, direct phone actions, directions, Instagram, internal Services/Bridal/Gallery/Locations navigation and the supplied salon photography.
+- Reworked Locations into direct contact cards with a call-for-current-hours/services message.
+- Reworked Bridal into a planning/contact flow without quoting unconfirmed pricing.
+- Reworked Services so it is clearly an overview, with current availability/details confirmed by phone.
+
+No new business facts were invented in this cleanup.
