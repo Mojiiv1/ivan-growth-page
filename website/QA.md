@@ -31,3 +31,24 @@ Physical devices, screen readers, live booking completion and field Core Web Vit
 The first GitHub QA run completed its 60 layout cases, then exposed a timing gap between native dialog Escape closure and scroll-lock cleanup. The lightbox now restores scrolling and focus synchronously for Escape, close-button and backdrop dismissal, with an idempotent native-close fallback. Fresh CI verification is pending for this repair.
 
 The next Chromium run passed all 60 layout/touch-target cases and all 63 axe/interaction audits. The supplementary footer check then revealed a test-timing issue: it measured while smooth scrolling was still running. Test-only scroll positioning now uses instant scrolling so geometry is measured at the intended location. No footer layout or business information changed for this correction.
+
+
+## Final UI/accessibility refinement — 2026-10-04
+
+Implemented on the GitHub Pages source:
+- Reduced the global section-spacing ceiling and tightened page gutters.
+- Reduced oversized H1/H2/H3 scales while preserving the editorial hierarchy.
+- Tightened header, hero, page-intro, service, location and footer spacing.
+- Removed the large gallery stagger and normalized the final gallery item width.
+- Raised micro text from 12px to 13px and kept control/caption text at 14px.
+- Increased gallery zoom controls to 44px visual targets.
+- Improved service-row readability and spacing.
+- Reduced footer density and increased footer body text readability.
+- Added forced-colors focus/border fallbacks.
+- Clarified non-phone CTAs from “Call to book” to “Choose a location” where the link first opens the location chooser.
+- Preserved verified Ivan content, phone links, official booking links, theme behavior, lightbox behavior and existing accessibility mechanics.
+
+Verification status:
+- GitHub Pages build checks passed for the current revision.
+- The repository accessibility/browser QA workflow was triggered automatically and is still running at the time of this update.
+- This document does not claim the new revision passed Playwright/axe until that workflow completes.
