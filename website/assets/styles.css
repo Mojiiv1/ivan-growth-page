@@ -108,3 +108,10 @@ h2,h3{line-height:1.12}
   .visit-card{padding-top:1.25rem}
   .location-full .actions{align-items:flex-start}
 }
+
+
+
+/* Keep fixed mobile actions from covering footer content. */
+@media(max-width:760px){
+  .footer{padding-bottom:calc(6.5rem + env(safe-area-inset-bottom))}
+}
