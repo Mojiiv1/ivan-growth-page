@@ -177,8 +177,8 @@
     },
     {
       "file": "site.js",
-      "bytes": 4208,
-      "sha256": "56d7c8356ce9ed8b45fa484afcc4f89d178e91ba66fe283e9bc3d70952d6c227"
+      "bytes": 4382,
+      "sha256": "4c1008ac8782e95c1b98a8bcef147900d0ac8094d046850b19275cb1b6cce3ec"
     },
     {
       "file": "styles.css",
@@ -196,5 +196,5 @@
       "sha256": "bcf099c1d802a8811f9863a924d819647750574dba9229d160e2e30da17836d7"
     }
   ],
-  "totalAssetBytes": 872533
+  "totalAssetBytes": 872707
 }

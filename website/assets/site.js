@@ -19,13 +19,16 @@
     let index=0,opener=null,start=null;
     function render(){const source=photos[index].querySelector('img');dialog.querySelector('img').src=photos[index].href;dialog.querySelector('img').alt=source.alt;dialog.querySelector('img').width=Number(source.getAttribute('width'));dialog.querySelector('img').height=Number(source.getAttribute('height'));$('#photo-caption').textContent=source.alt;$('#photo-count').textContent=`Photo ${index+1} of ${photos.length}`}
     function move(delta){index=(index+delta+photos.length)%photos.length;render()}
+    function restorePage(){if(!dialog.open){document.body.classList.remove('modal-open');opener?.focus()}}
+    function closePhoto(){dialog.close();restorePage()}
     photos.forEach((a,i)=>a.addEventListener('click',e=>{if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();index=i;opener=a;render();dialog.showModal();document.body.classList.add('modal-open');$('#close-photo').focus()}));
-    $('#close-photo').addEventListener('click',()=>dialog.close());$('#previous-photo').addEventListener('click',()=>move(-1));$('#next-photo').addEventListener('click',()=>move(1));
-    dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
+    $('#close-photo').addEventListener('click',closePhoto);$('#previous-photo').addEventListener('click',()=>move(-1));$('#next-photo').addEventListener('click',()=>move(1));
+    dialog.addEventListener('cancel',e=>{e.preventDefault();closePhoto()});
+    dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closePhoto()}});
     dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();move(-1)}if(e.key==='ArrowRight'){e.preventDefault();move(1)}if(e.key==='Tab'){const b=[...dialog.querySelectorAll('button')];if(e.shiftKey&&document.activeElement===b[0]){e.preventDefault();b.at(-1).focus()}else if(!e.shiftKey&&document.activeElement===b.at(-1)){e.preventDefault();b[0].focus()}}});
     dialog.addEventListener('touchstart',e=>{if(e.touches.length!==1){start=null;return}const t=e.changedTouches[0];start={x:t.clientX,y:t.clientY}},{passive:true});
     dialog.addEventListener('touchend',e=>{if(!start)return;const t=e.changedTouches[0],dx=t.clientX-start.x,dy=t.clientY-start.y;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy))move(dx>0?-1:1);start=null},{passive:true});
     dialog.addEventListener('touchcancel',()=>{start=null},{passive:true});
-    dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');opener?.focus()});
+    dialog.addEventListener('close',restorePage);
   }
 })();

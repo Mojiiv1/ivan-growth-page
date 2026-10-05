@@ -26,3 +26,6 @@ Fresh access to the private live preview was blocked by automatic approval revie
 A repository-level GitHub Actions job is supplied to run the updated build and browser suite against localhost from the checked-in source. Its actual status must be checked separately; adding a workflow is not a passing test result. No phone call, booking, review or message is submitted by the tests.
 
 Physical devices, screen readers, live booking completion and field Core Web Vitals remain unverified. No full WCAG certification or Lighthouse score is claimed.
+
+## Chromium follow-up
+The first GitHub QA run completed its 60 layout cases, then exposed a timing gap between native dialog Escape closure and scroll-lock cleanup. The lightbox now restores scrolling and focus synchronously for Escape, close-button and backdrop dismissal, with an idempotent native-close fallback. Fresh CI verification is pending for this repair.
