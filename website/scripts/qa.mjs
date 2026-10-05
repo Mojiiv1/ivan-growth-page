@@ -12,7 +12,7 @@ for(const theme of ['light','dark'])for(const url of pages)for(const width of [3
  await page.setViewportSize({width,height:900});await page.goto('http://127.0.0.1:4173/demo/'+url);await page.evaluate(t=>{localStorage.setItem('ivan-theme',t)},theme);await page.reload();await page.locator('main img').evaluateAll(async imgs=>{await Promise.all(imgs.filter(i=>i.complete).map(i=>i.decode().catch(()=>{})))});
  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);assert(!overflow,`${url} ${width} ${theme} overflow`);assert.equal(await page.locator('h1').count(),1);assert.equal(await page.locator('html').getAttribute('data-theme'),theme);await audit(`${url||'home'} ${width} ${theme}`);checks.push(`${url||'home'} ${width} ${theme}`);
  await checkTargets();
- if([375,1440].includes(width)){for(const im of await page.locator('img[src]').all()){if(await im.isVisible()){await im.scrollIntoViewIfNeeded();await im.evaluate(i=>i.decode())}}await page.evaluate(()=>scrollTo(0,0));} if([375,1440].includes(width))await page.screenshot({path:`qa/${url.replace('/','')||'home'}-${width}-${theme}.png`,fullPage:true});
+ if([375,1440].includes(width)){for(const im of await page.locator('img[src]').all()){if(await im.isVisible()){await im.scrollIntoViewIfNeeded();await im.evaluate(i=>i.decode())}}await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));} if([375,1440].includes(width))await page.screenshot({path:`qa/${url.replace('/','')||'home'}-${width}-${theme}.png`,fullPage:true});
 }
 console.log('Completed 60 layout/accessibility cases.');
 await checkTargets();
