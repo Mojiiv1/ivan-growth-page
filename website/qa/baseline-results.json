@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-04",
+  "layoutCases": 60,
+  "axeAudits": 63,
+  "violations": [],
+  "errors": [],
+  "interactions": [
+    "mobile navigation Escape/focus",
+    "lightbox arrows/wrap/Tab/Escape/focus/scroll unlock",
+    "theme persistence",
+    "storage denied",
+    "reduced motion",
+    "200% text reflow all pages",
+    "no-JS navigation all pages",
+    "nested base path /demo/"
+  ],
+  "status": "pass"
+}

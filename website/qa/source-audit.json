@@ -1,0 +1,200 @@
+{
+  "status": "pass",
+  "scope": "Source checks only; not a fresh live-browser audit",
+  "localReferencesAndFragments": 133,
+  "externalLinks": [
+    "https://www.instagram.com/ivanbeautysalon/",
+    "https://www.google.com/maps/place/Ivan+Beauty+Salon/@45.4528318,-75.6334302,21z/data=!4m8!3m7!1s0x4cce1b002a344b11:0x7ca6ac0af7db947c!8m2!3d45.4528318!4d-75.6334302!9m1!1b1!16s%2Fg%2F11z52fnj_x?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+    "https://ivanbeauty.com/booking/",
+    "https://ivanbeauty.com/",
+    "https://ivanbeauty.com/services/",
+    "https://ivanbeauty.com/hemlock/",
+    "https://www.google.com/maps/search/?api=1&query=356-C+Woodroffe+Ave+Ottawa+ON+K2A+1H2",
+    "https://ivanbeauty.com/contact/"
+  ],
+  "contrast": [
+    {
+      "name": "light text/paper",
+      "ratio": 14.21,
+      "minimum": 4.5
+    },
+    {
+      "name": "light muted/paper",
+      "ratio": 5.47,
+      "minimum": 4.5
+    },
+    {
+      "name": "light gold/paper",
+      "ratio": 5.71,
+      "minimum": 4.5
+    },
+    {
+      "name": "light focus/paper",
+      "ratio": 4.42,
+      "minimum": 3
+    },
+    {
+      "name": "light text/surface",
+      "ratio": 12.78,
+      "minimum": 4.5
+    },
+    {
+      "name": "light muted/surface",
+      "ratio": 4.92,
+      "minimum": 4.5
+    },
+    {
+      "name": "light gold/surface",
+      "ratio": 5.14,
+      "minimum": 4.5
+    },
+    {
+      "name": "light focus/surface",
+      "ratio": 3.98,
+      "minimum": 3
+    },
+    {
+      "name": "dark text/paper",
+      "ratio": 14.16,
+      "minimum": 4.5
+    },
+    {
+      "name": "dark muted/paper",
+      "ratio": 8.57,
+      "minimum": 4.5
+    },
+    {
+      "name": "dark gold/paper",
+      "ratio": 8.77,
+      "minimum": 4.5
+    },
+    {
+      "name": "dark focus/paper",
+      "ratio": 9.91,
+      "minimum": 3
+    },
+    {
+      "name": "dark text/surface",
+      "ratio": 12.27,
+      "minimum": 4.5
+    },
+    {
+      "name": "dark muted/surface",
+      "ratio": 7.42,
+      "minimum": 4.5
+    },
+    {
+      "name": "dark gold/surface",
+      "ratio": 7.6,
+      "minimum": 4.5
+    },
+    {
+      "name": "dark focus/surface",
+      "ratio": 8.59,
+      "minimum": 3
+    },
+    {
+      "name": "gold button",
+      "ratio": 9.22,
+      "minimum": 4.5
+    },
+    {
+      "name": "gold hover",
+      "ratio": 11.37,
+      "minimum": 4.5
+    },
+    {
+      "name": "black button",
+      "ratio": 15.96,
+      "minimum": 4.5
+    },
+    {
+      "name": "black hover",
+      "ratio": 11.13,
+      "minimum": 4.5
+    },
+    {
+      "name": "footer",
+      "ratio": 9.7,
+      "minimum": 4.5
+    },
+    {
+      "name": "navigation active",
+      "ratio": 9.88,
+      "minimum": 4.5
+    },
+    {
+      "name": "inverse focus",
+      "ratio": 11.17,
+      "minimum": 3
+    },
+    {
+      "name": "control border",
+      "ratio": 4.13,
+      "minimum": 3
+    },
+    {
+      "name": "lightbox hover",
+      "ratio": 10.23,
+      "minimum": 4.5
+    },
+    {
+      "name": "demo label",
+      "ratio": 9.51,
+      "minimum": 4.5
+    }
+  ],
+  "assets": [
+    {
+      "file": "ivan-logo.png",
+      "bytes": 251874,
+      "sha256": "63fdfe1815abbafbc97f86da8a36eb4e1c0cb7e7198703133e64dc616fe18cfd"
+    },
+    {
+      "file": "photo-1.webp",
+      "bytes": 135276,
+      "sha256": "558b1a2baefb1c86de109946cf848b87dc81af2157bcca02c1efbb317723a355"
+    },
+    {
+      "file": "photo-2.webp",
+      "bytes": 108340,
+      "sha256": "38fda286918679b7d5fb7958f369921be797716d94f0fd4bd80e8a8edf036f2e"
+    },
+    {
+      "file": "photo-3.webp",
+      "bytes": 68448,
+      "sha256": "54b95d537580cea6da8d8760887c23cb0ebd5deee8ccc56f7055405f0cfcaeca"
+    },
+    {
+      "file": "photo-4.webp",
+      "bytes": 170160,
+      "sha256": "4cbea48d29f9312397822ce528d5bb249f65ecc62547001b34c3ef02550d3798"
+    },
+    {
+      "file": "photo-5.webp",
+      "bytes": 118156,
+      "sha256": "26e1a17b7c81673571f279978db2f9c102b1f859b0973de588b6a7316be700a2"
+    },
+    {
+      "file": "site.js",
+      "bytes": 4208,
+      "sha256": "56d7c8356ce9ed8b45fa484afcc4f89d178e91ba66fe283e9bc3d70952d6c227"
+    },
+    {
+      "file": "styles.css",
+      "bytes": 15111,
+      "sha256": "7215b3881535570a359fc6a55d47f616ff9b68b0701ce4c0d76fe93247a671f3"
+    },
+    {
+      "file": "theme-init.js",
+      "bytes": 175,
+      "sha256": "936ba47bf6ed2cc6faf01043d82e53a046ba83c834ebf008ac36a9c884de5caf"
+    },
+    {
+      "file": "tokens.css",
+      "bytes": 785,
+      "sha256": "bcf099c1d802a8811f9863a924d819647750574dba9229d160e2e30da17836d7"
+    }
+  ],
+  "totalAssetBytes": 872533
+}

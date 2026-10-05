@@ -1,0 +1,39 @@
+name: Ivan website QA
+on:
+  push:
+    branches: [main]
+    paths: ['website/**', '.github/workflows/ivan-website-qa.yml']
+  pull_request:
+    paths: ['website/**', '.github/workflows/ivan-website-qa.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: website
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build && npm run check && node scripts/audit-source.mjs
+      - name: Check browser behaviour against local source
+        run: |
+          node scripts/serve.mjs > /tmp/ivan-preview.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then break; fi
+            sleep 1
+          done
+          npm run test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ivan-website-audit
+          path: website/qa/

@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "links": 48,
+  "visibleImagesDecoded": 21,
+  "checks": [
+    "internal links and fragments",
+    "all visible images decode",
+    "mobile footer clears action bar",
+    "menu navigation",
+    "keyboard skip link"
+  ],
+  "externalTransactionsSubmitted": 0
+}

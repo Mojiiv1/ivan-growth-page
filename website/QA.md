@@ -1,0 +1,28 @@
+# Audit and export — 2026-10-04
+
+## This revision
+Source review found and corrected:
+- Mobile lightbox arrows could be narrower than 44px. They now have explicit 48px targets; navigation, footer links, phone links and other controls have 44px minimum target dimensions.
+- Captions and navigation text were small. Control/caption text is now 14px, small labels 12px, and section heading line-height 1.12. Body text remains 16px/1.65.
+- Dark primary buttons blended into the canvas. They now use gold backgrounds and dark text, with separate hover colours.
+- Adjacent bridal links lacked separation. A shared link stack supplies consistent spacing; service-aside links also occupy separate rows.
+- The gallery's first image was lazy-loaded. It is now eager/high-priority; remaining gallery images stay lazy-loaded.
+- Logo height metadata was off by one pixel: corrected to the measured 1200 × 639 dimensions.
+- Lightbox height now leaves room for controls on short screens. Pinch gestures no longer start swipe navigation. Viewer dimensions track the selected photograph.
+- Mobile footer/scroll padding now accounts for the safe-area inset.
+- The source export is self-contained: build, preview and checks no longer depend on parent growth-page files.
+
+## Executed for this revision
+- Static link/asset check: 128 references passed.
+- Source audit: 133 local references and fragments passed; 26 configured light/dark text, focus and control contrast pairs passed the relevant 4.5:1 / 3:1 thresholds.
+- JavaScript syntax checks passed. Original photo files remain unchanged. No business fact, price, hour, review, service or booking destination was added.
+- Detailed ratios and asset hashes: qa/source-audit.json.
+
+## Browser evidence and limitations
+The previous private-demo revision passed 60 viewport/theme cases and 63 axe audits. Its results are retained as qa/baseline-results.json and qa/baseline-extra-results.json. Those results are not presented as a fresh audit of this revision.
+
+Fresh access to the private live preview was blocked by automatic approval review because the browser tool reached its usage limit. No alternate browser or indirect access was used to bypass that denial. A fresh live-browser audit is therefore incomplete.
+
+A repository-level GitHub Actions job is supplied to run the updated build and browser suite against localhost from the checked-in source. Its actual status must be checked separately; adding a workflow is not a passing test result. No phone call, booking, review or message is submitted by the tests.
+
+Physical devices, screen readers, live booking completion and field Core Web Vitals remain unverified. No full WCAG certification or Lighthouse score is claimed.
