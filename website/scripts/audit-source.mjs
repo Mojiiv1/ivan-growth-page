@@ -9,6 +9,10 @@ for(const [mode,paper,surface,ink,muted,gold,focus] of [['light','#f6f2ea','#ece
 for(const [name,fg,bg,min] of [['gold button','#211e18','#dfbd70',4.5],['gold hover','#211e18','#edd398',4.5],['black button','#f6f2ea','#171816',4.5],['black hover','#f6f2ea','#33352e',4.5],['footer','#c3bfb4','#171816',4.5],['navigation active','#dfbd70','#171816',4.5],['inverse focus','#ebc979','#171816',3],['control border','#797b6e','#171816',3],['lightbox hover','#f6f2ea','#383b31',4.5],['demo label','#d7d1c4','#292a25',4.5]])pairs.push({name,ratio:contrast(fg,bg),minimum:min});
 for(const p of pairs)assert(p.ratio>=p.minimum,`${p.name}: ${p.ratio}`);
 const assets=fs.readdirSync('assets').map(file=>({file,bytes:fs.statSync('assets/'+file).size,sha256:createHash('sha256').update(fs.readFileSync('assets/'+file)).digest('hex')}));
-const gallery=fs.readFileSync('gallery/index.html','utf8');assert.match(gallery,/<img[^>]*photo-5.webp[^>]*fetchpriority="high"/);
+for (const language of ['','fr/','ar/']) {
+  const gallery=fs.readFileSync(language+'gallery/index.html','utf8');
+  assert.match(gallery,/<img(?=[^>]*\bphoto-1\.webp)(?=[^>]*\bloading="eager")(?=[^>]*\bfetchpriority="high")[^>]*>/,language+'gallery: featured image must load eagerly at high priority');
+  assert.match(gallery,/<img(?=[^>]*\bphoto-5\.webp)(?=[^>]*\bloading="lazy")[^>]*>/,language+'gallery: non-featured fifth image should load lazily');
+}
 const result={status:'pass',scope:'Source checks only; not a fresh live-browser audit',localReferencesAndFragments:links,externalLinks:[...external],contrast:pairs.map(p=>({...p,ratio:Number(p.ratio.toFixed(2))})),assets,totalAssetBytes:assets.reduce((n,a)=>n+a.bytes,0)};
 fs.mkdirSync('qa',{recursive:true});fs.writeFileSync('qa/source-audit.json',JSON.stringify(result,null,2));console.log(JSON.stringify({status:result.status,localReferences:links,contrastPairs:pairs.length,totalAssetBytes:result.totalAssetBytes}));
