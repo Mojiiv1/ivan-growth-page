@@ -70,7 +70,7 @@ for (const lang of languages) {
           link.append(img);
           link.insertAdjacentHTML('beforeend', '<span class="gallery-zoom" aria-hidden="true">↗</span>');
         });
-        document.body.insertAdjacentHTML('beforeend', `<dialog class="lightbox" aria-labelledby="lightbox-caption"><button class="lightbox-close" type="button" data-lightbox-close aria-label="Close viewer">×</button><button class="lightbox-prev" type="button" data-lightbox-prev aria-label="Previous photo">‹</button><figure><img alt=""><figcaption id="lightbox-caption"></figcaption></figure><button class="lightbox-next" type="button" data-lightbox-next aria-label="Next photo">›</button></dialog>`);
+        document.body.insertAdjacentHTML('beforeend', `<dialog class="lightbox" aria-labelledby="lightbox-caption"><span class="lightbox-count" data-lightbox-count>01 / 05</span><button class="lightbox-close" type="button" data-lightbox-close aria-label="Close viewer">×</button><button class="lightbox-prev" type="button" data-lightbox-prev aria-label="Previous photo">‹</button><figure><img alt=""><figcaption id="lightbox-caption"></figcaption></figure><button class="lightbox-next" type="button" data-lightbox-next aria-label="Next photo">›</button></dialog>`);
       }
       if (route === 'locations') {
         document.querySelectorAll('main .location-card h3').forEach(heading => {
