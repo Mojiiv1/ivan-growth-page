@@ -1,30 +1,22 @@
-# Ivan Beauty Salon — full website demo
+# Ivan Beauty Salon — cream-and-gold website demo (V2)
 
-The five-page demo is self-contained in this directory. Keep `assets/`, `services/`, `bridal/`, `gallery/` and `locations/` beside `index.html`. All navigation and asset URLs are relative, so this works at a GitHub Pages project subdirectory.
+Preview: https://mojiiv1.github.io/ivan-growth-page/website/
 
-GitHub Pages destination: https://mojiiv1.github.io/ivan-growth-page/website/
+The homepage is a mobile-first, client-review design demo. It has five navigable views (Home, Services, Bridal, Gallery, Locations) at hash routes such as `#/en/services`, `#/fr/bridal`, and `#/ar/locations`. English, French and Arabic are supported. Arabic switches document direction to RTL.
 
-## Preview, edit and rebuild
-Use Node.js 22+:
+The homepage uses the actual transparent gold Ivan logo, existing salon portfolio images, official locations and phone numbers, service/bridal information published on Ivan's original website, and user-provided Hemlock reference prices clearly labeled for reconfirmation. No testimonials, staff names, appointment availability or reviews are invented.
 
+Booking goes to https://ivanbeauty.com/booking/. Google Calendar, email confirmations and other new booking automation have **not** been implemented.
+
+The previously generated static pages in `services/`, `bridal/`, `gallery/` and `locations/` remain in place as archived references. The V2 navigation stays within `index.html`; `scripts/build.mjs` deliberately preserves that homepage while rebuilding the older archive pages. The app is a prototype, not production-ready static localized pages. For an official launch, convert language+page hash routes to server-addressable static URLs with `hreflang`, and ensure the core content works without JavaScript.
+
+## Preview and QA
 ```sh
 npm install
 npm run build
 npm run check
 npm run serve
+npm run test
 ```
 
-Open http://127.0.0.1:4173/. Edit `scripts/build.mjs` for content and page templates, and `assets/` for shared styling and behaviour. The build regenerates the five static pages here and copies only deployable assets into `dist/`. It needs no parent files and does not depend on the old growth page or private Sites hosting.
-
-Run `node scripts/audit-source.mjs` for local links, fragments, asset hashes and contrast calculations. With the local server running, `npm run test` runs the browser suite. Windows uses installed Edge; Linux uses Playwright Chromium (`npx playwright install --with-deps chromium`). The repository-level GitHub Actions job uses this directory as its working directory.
-
-## Documentation
-- `AGENTS.md`: reusable implementation rules.
-- `docs/SOURCES.md`: verified/public business facts and original asset provenance.
-- `docs/DESIGN.md`: architecture and design decisions.
-- `docs/READINESS.md`: required owner confirmations before production.
-- `QA.md`: audit evidence, fixes and limitations.
-- `qa/baseline-*.json`: previous version's browser evidence, explicitly not results for this revision.
-- `qa/source-audit.json`: this revision's source checks.
-
-The original root landing page remains separate. No prices, hours, service claims or booking destinations were added during this audit. Demo labels and noindex remain. Do not add production canonical URLs or structured data until the owner confirms the final domain and business details.
+The demo retains noindex,nofollow and an explicit concept label. Before launch, confirm logo and photo usage rights, business hours (especially Hemlock Tuesday), all current prices, branches' service offerings, staff and scheduling, cancellation terms, and actual owner approval. Do not treat Google Calendar/Gmail automation as active.
