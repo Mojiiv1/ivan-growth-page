@@ -78,3 +78,19 @@ User-facing pages were simplified so the demo does not depend on the previous Iv
 - Reworked Services so it is clearly an overview, with current availability/details confirmed by phone.
 
 No new business facts were invented in this cleanup.
+
+## Reliability review — 2026-10-12
+
+- Reviewed the five English pages and their French and Arabic counterparts from the current `main` branch.
+- Fixed invalid complementary landmarks in the Services booking panel and Gallery Instagram panel. These panels are visual content groups, not page-level complementary landmarks; preserving their classes keeps the approved layout unchanged while removing the axe `landmark-complementary-is-top-level` failure.
+- Fixed the static exporter source using `top` as a function name. `window.top` is a reserved browser property, so the exporter failed on Services with `top is not a function`; the helper is now named `pageIntro`.
+- Regenerated all 15 static localized documents from the canonical source so navigation, responsive styles, gallery markup, and shared enhancements remain synchronized.
+
+Validation performed:
+
+- `pnpm build`: passed; generated 15 localized pages.
+- `pnpm check`: passed; five primary pages and 171 local references resolved, with 897,597 bytes of local assets.
+- `pnpm test`: passed after the fixes across 30 combinations (five pages × three languages × 320px and 1440px viewports), including axe audits, horizontal-overflow checks, image loading, navigation counts, mobile-menu open/Escape behavior, and gallery dialog open/Escape behavior.
+- `git diff --check`: passed.
+
+The current approved cream-and-gold site does not expose a dark/light theme switch, so no new theme UI or alternate color design was introduced during this preservation-focused review. External booking, telephone, maps, Instagram, and official-site destinations were not submitted or transaction-tested.
