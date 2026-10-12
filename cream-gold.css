@@ -1,0 +1,109 @@
+/* Ivan Beauty Salon | Cream & Gold palette (V5)
+   Presentation-only layer. Existing content, URLs and booking behavior are untouched. */
+:root {
+  --burgundy: #372e21;
+  --burgundy-deep: #2c251b;
+  --rose: #e7c77d;
+  --cream: #f9f3e8;
+  --paper: #fffcf5;
+  --gold: #c3973c;
+  --ink: #30271b;
+  --muted: #6f614f;
+  --line: #e5d7b9;
+}
+body { background: #eae1d2; color: var(--ink); }
+.shell { background: var(--cream); }
+.hero {
+  background: #f6efdf;
+  color: var(--ink);
+}
+.hero::before,.hero::after { border-color: rgba(163, 127, 62, .14); }
+.wordmark { color: #8b6323; }
+.language { border-color: rgba(142, 103, 42, .38); background: rgba(255, 250, 239, .75); }
+.language button { color: #4f402c; }
+.language button[aria-pressed="true"] { background: #4d3a22; color: #fff9e8; }
+/* The supplied Ivan logo is gold with a transparent background.
+   A dark espresso plaque gives it the contrast it needs over ivory. */
+.logo {
+  box-sizing: content-box;
+  padding: 9px 15px 6px;
+  background: #31281e;
+  border: 1px solid #b58b45;
+  border-radius: 13px;
+  filter: drop-shadow(0 5px 12px rgba(61, 45, 24, .14));
+}
+.eyebrow { color: #91691e; }
+.hero h1 { color: #32291d; }
+.hero h1 em { color: #936c24; }
+.intro { color: #5c5142; }
+.location-card {
+  background: rgba(255, 252, 245, .89);
+  color: #332b20;
+  border-color: #d9c8a6;
+  box-shadow: 0 8px 22px rgba(73, 55, 30, .07);
+}
+.location-card .pin { color: #926a26; }
+.location-card small { color: #675b4a; }
+.location-tag { border-color: #c6ac75; color: #6b5128; }
+.content { background: linear-gradient(#fcf8f0, #f9f3e8); }
+.action-book {
+  color: #281e13;
+  background: linear-gradient(135deg,#f0d48c,#e2b85c);
+  border-color: #d4a951;
+}
+.action-book .action-icon { background: rgba(255, 253, 241, .56); color: #5c421c; }
+.action-book .action-copy small { color: #594221; }
+.action-review {
+  color: #382d20;
+  background: #fffdf7;
+  border-color: #deccaa;
+}
+.action-review .action-icon { background: #f8eccb; color: #8a641d; }
+.action-review .action-copy small { color: #736650; }
+.chevron { color: #826127; }
+.quick-section h2, .story .eyebrow { color: #7e633d; }
+.quick-link { background: rgba(255,253,248,.9); border-color: #e7dbc3; }
+.quick-icon { background: #f7eacb; color: #966d29; }
+.quick-link:hover { background: #fff7e4; border-color: #c7a15d; }
+.story { background: #eee4cf; }
+.story h2 { color: #33291d; }
+.story h2 em { color: #93702d; }
+.story-copy>p:not(.eyebrow) { color: #625943; }
+.story-copy>a { color: #805a20; }
+.photo-stack img { border-color: #fffbf2; box-shadow: 0 15px 32px rgba(77,54,24,.16); }
+.note-card { background: #fffbf3; border-color: #e2d3b8; }
+.note-card>span { color: #b98a2a; }
+.note-card p { color: #70624d; }
+footer { color: #756958; }
+@media (min-width:700px) {
+  .hero-photo {
+    background:
+      linear-gradient(90deg, #f6efdf 0%, rgba(246,239,223,.98) 9%, rgba(246,239,223,.78) 38%, rgba(246,239,223,.13) 77%, rgba(246,239,223,.02) 100%),
+      url("photo-5.webp") center 28%/cover no-repeat;
+    opacity: 1;
+  }
+}
+@media (max-width:699px) {
+  .hero { background: #f7efdf; }
+  .hero-photo {
+    background:
+      linear-gradient(180deg,rgba(41,33,24,.17) 0%,rgba(42,34,26,.03) 25%,rgba(249,243,232,.52) 48%,rgba(249,243,232,.96) 70%,#f9f3e8 94%),
+      url("photo-5.webp") center 30%/cover no-repeat;
+    opacity: 1;
+  }
+  .topbar {
+    margin-inline: -22px;
+    padding-inline: 22px;
+    padding-bottom: 12px;
+    background: rgba(40,32,23,.86);
+    border-bottom: 1px solid rgba(224,183,96,.22);
+  }
+  .wordmark { color: #f2ce77; }
+  .language { background: rgba(255,248,230,.10); border-color: rgba(255,248,230,.38); }
+  .language button { color: #fff6e4; }
+  .language button[aria-pressed="true"] { background: #f7e7bf; color: #392b1a; }
+  .location-card { background: rgba(255,252,245,.92); }
+}
+@media (max-width:350px) {
+  .topbar { margin-inline: -16px; padding-inline: 16px; }
+}
