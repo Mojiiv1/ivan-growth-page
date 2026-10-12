@@ -1,5 +1,15 @@
 # Audit and export — 2026-10-04
 
+## Static multilingual repair — 2026-10-12
+
+- Replaced the mixed hash/static navigation with 15 server-addressable documents: five pages in English, French and Arabic.
+- Confirmed page-preserving language links, Arabic RTL documents, direct/reload-safe relative URLs, booking links, phone links, directions, Instagram links, mobile menu Escape/focus behavior, and keyboard gallery-dialog behavior.
+- `scripts/check.mjs`: 162 resolved local references, no missing local assets.
+- `scripts/qa-static.mjs`: 30 viewport/page/language cases passed at 320 × 720 and 1440 × 900; 30 axe-core audits passed; no horizontal overflow or broken loaded images were found.
+- Desktop English and mobile Arabic full-page screenshots were captured.
+
+Limitations: external booking completion, phone calls, directions destinations, Instagram, physical devices, screen readers, 200% native browser zoom, and real appointment availability were not exercised. Automated axe results are not WCAG certification.
+
 ## This revision
 Source review found and corrected:
 - Mobile lightbox arrows could be narrower than 44px. They now have explicit 48px targets; navigation, footer links, phone links and other controls have 44px minimum target dimensions.

@@ -1,5 +1,9 @@
 # Ivan evidence register — 2026-10-04
 
+## 2026-10-12 implementation boundary
+
+The navigation and localization repair did not add new business facts. It reused the addresses, phones, booking destination, service descriptions, reference prices and warnings already recorded below. Unconfirmed hours, prices, policies, service availability, photo consent and owner approval remain launch blockers rather than implied facts.
+
 Research preceded implementation. Official pages were available through search-index/web extraction; direct requests to ivanbeauty.com returned a Cloudflare challenge. This is public-source verification, not a phone confirmation or live booking transaction.
 
 | Evidence | Source | Use and boundary |

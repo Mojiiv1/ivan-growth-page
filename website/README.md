@@ -2,13 +2,13 @@
 
 Preview: https://mojiiv1.github.io/ivan-growth-page/website/
 
-The homepage is a mobile-first, client-review design demo. It has five navigable views (Home, Services, Bridal, Gallery, Locations) at hash routes such as `#/en/services`, `#/fr/bridal`, and `#/ar/locations`. English, French and Arabic are supported. Arabic switches document direction to RTL.
+The mobile-first client-review demo has five real static pages (Home, Services, Bridal, Gallery and Locations) in English, French and Arabic. English uses `/website/`, `/website/services/`, and the other top-level page directories. French and Arabic use `/website/fr/...` and `/website/ar/...`. Every URL supports direct loading and refresh; Arabic documents use `dir="rtl"`.
 
 The homepage uses the actual transparent gold Ivan logo, existing salon portfolio images, official locations and phone numbers, service/bridal information published on Ivan's original website, and user-provided Hemlock reference prices clearly labeled for reconfirmation. No testimonials, staff names, appointment availability or reviews are invented.
 
 Booking goes to https://ivanbeauty.com/booking/. Google Calendar, email confirmations and other new booking automation have **not** been implemented.
 
-The previously generated static pages in `services/`, `bridal/`, `gallery/` and `locations/` remain in place as archived references. The V2 navigation stays within `index.html`; `scripts/build.mjs` deliberately preserves that homepage while rebuilding the older archive pages. The app is a prototype, not production-ready static localized pages. For an official launch, convert language+page hash routes to server-addressable static URLs with `hreflang`, and ensure the core content works without JavaScript.
+Navigation, service cards, footer links and language links all use static relative URLs. Language switching retains the current page. JavaScript progressively enhances the mobile menu and gallery viewer; core content and navigation remain available without it. `scripts/app-source.html` is the localized source template and `scripts/export-static.mjs` exports all 15 documents with `hreflang` alternates.
 
 ## Preview and QA
 ```sh

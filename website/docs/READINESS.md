@@ -3,6 +3,7 @@
 This is a Tap & Grow Ottawa design demo, not the official Ivan website. The header and footer identify the demo. All five pages carry noindex,nofollow; no analytics, lead capture or business JSON-LD is installed.
 
 Before production:
+- Obtain Ivan's explicit approval for the complete English, French and Arabic wording and Arabic terminology.
 - Confirm current phone numbers and schedules with both branches; specifically Hemlock Tuesday's published noon closing and conflicting third-party Woodroffe details.
 - Confirm current branch-specific services and starting prices, taxes and surcharges. The demo only displays the two clearly sourced Hemlock bridal starting prices.
 - Test the complete official booking flow, branch selection, availability and cancellation behaviour with the salon; do not make a test appointment without permission.
