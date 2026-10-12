@@ -61,12 +61,14 @@ for (const lang of languages) {
       if (route === 'gallery') {
         document.querySelectorAll('.gallery-page figure').forEach((figure, i) => {
           const img = figure.querySelector('img');
-          const button = document.createElement('button');
-          button.className = 'gallery-open';
-          button.dataset.galleryOpen = String(i);
-          button.setAttribute('aria-label', `${img.alt}: open full-size viewer`);
-          img.replaceWith(button);
-          button.append(img);
+          const link = document.createElement('a');
+          link.className = 'gallery-open';
+          link.href = img.src;
+          link.dataset.galleryOpen = String(i);
+          link.setAttribute('aria-label', `${img.alt}: open full-size viewer`);
+          img.replaceWith(link);
+          link.append(img);
+          link.insertAdjacentHTML('beforeend', '<span class="gallery-zoom" aria-hidden="true">↗</span>');
         });
         document.body.insertAdjacentHTML('beforeend', `<dialog class="lightbox" aria-labelledby="lightbox-caption"><button class="lightbox-close" type="button" data-lightbox-close aria-label="Close viewer">×</button><button class="lightbox-prev" type="button" data-lightbox-prev aria-label="Previous photo">‹</button><figure><img alt=""><figcaption id="lightbox-caption"></figcaption></figure><button class="lightbox-next" type="button" data-lightbox-next aria-label="Next photo">›</button></dialog>`);
       }
@@ -85,6 +87,7 @@ for (const lang of languages) {
       }
       document.querySelectorAll('script').forEach(script => script.remove());
       document.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" href="${assetPrefix}static.css">`);
+      if (route === 'gallery') document.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" href="${assetPrefix}gallery-v2.css">`);
       document.body.insertAdjacentHTML('beforeend', `<script src="${assetPrefix}static.js" defer></script>`);
       document.querySelector('meta[name="description"]').content = document.querySelector('.section-intro,.lead')?.textContent.trim() || 'Ivan Beauty Salon website demo.';
       document.querySelectorAll('link[rel="alternate"]').forEach(link => link.remove());

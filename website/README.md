@@ -20,3 +20,6 @@ npm run test
 ```
 
 The demo retains noindex,nofollow and an explicit concept label. Before launch, confirm logo and photo usage rights, business hours (especially Hemlock Tuesday), all current prices, branches' service offerings, staff and scheduling, cancellation terms, and actual owner approval. Do not treat Google Calendar/Gmail automation as active.
+
+## Gallery refinement — October 2026
+The gallery presents five existing salon portfolio assets in a responsive editorial grid, with a progressive-enhancement full-screen viewer supporting keyboard arrows, Escape, focus return and touch swipes. Visitors can follow **@ivanbeautysalon** on Instagram via a clear external link; **the demo does not import, scrape or auto-sync Instagram posts**. Public use of salon imagery and any later embedded posts require owner permission. Source template and static export logic have been updated alongside all three published gallery routes.
