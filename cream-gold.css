@@ -22,15 +22,15 @@ body { background: #eae1d2; color: var(--ink); }
 .language { border-color: rgba(142, 103, 42, .38); background: rgba(255, 250, 239, .75); }
 .language button { color: #4f402c; }
 .language button[aria-pressed="true"] { background: #4d3a22; color: #fff9e8; }
-/* The supplied Ivan logo is gold with a transparent background.
-   A dark espresso plaque gives it the contrast it needs over ivory. */
+/* Use the original transparent PNG directly, without a dark plaque.
+   Darken only the gold artwork slightly for clarity on the cream hero. */
 .logo {
-  box-sizing: content-box;
-  padding: 9px 15px 6px;
-  background: #31281e;
-  border: 1px solid #b58b45;
-  border-radius: 13px;
-  filter: drop-shadow(0 5px 12px rgba(61, 45, 24, .14));
+  box-sizing: border-box;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  filter: brightness(.7) saturate(1.12) drop-shadow(0 2px 2px rgba(61, 45, 24, .1));
 }
 .eyebrow { color: #91691e; }
 .hero h1 { color: #32291d; }
