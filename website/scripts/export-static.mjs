@@ -87,6 +87,7 @@ for (const lang of languages) {
       }
       document.querySelectorAll('script').forEach(script => script.remove());
       document.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" href="${assetPrefix}static.css">`);
+      if (route === 'services') document.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" href="${assetPrefix}services-v2.css">`);
       if (route === 'gallery') document.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" href="${assetPrefix}gallery-v2.css">`);
       document.body.insertAdjacentHTML('beforeend', `<script src="${assetPrefix}static.js" defer></script>`);
       document.querySelector('meta[name="description"]').content = document.querySelector('.section-intro,.lead')?.textContent.trim() || 'Ivan Beauty Salon website demo.';

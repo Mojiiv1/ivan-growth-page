@@ -23,3 +23,6 @@ The demo retains noindex,nofollow and an explicit concept label. Before launch, 
 
 ## Gallery refinement — October 2026
 The gallery presents five existing salon portfolio assets in a responsive editorial grid, with a progressive-enhancement full-screen viewer supporting keyboard arrows, Escape, focus return and touch swipes. Visitors can follow **@ivanbeautysalon** on Instagram via a clear external link; **the demo does not import, scrape or auto-sync Instagram posts**. Public use of salon imagery and any later embedded posts require owner permission. Source template and static export logic have been updated alongside all three published gallery routes.
+
+## Services layout refinement — October 2026
+The three localized Services pages now use six consistent cards with genuine hairstyle portfolio examples (only where relevant), readable typography, a structured 16-item Hemlock reference menu, an explicit price-verification disclaimer, and direct booking/phone links. Responsive styles are scoped in `assets/services-v2.css`, and `scripts/app-source.html` plus `scripts/export-static.mjs` have been updated to retain this layout on rebuild. No live booking form, staff availability, or confirmation automation is implied. The NFC Growth Page and other website pages are unchanged.
