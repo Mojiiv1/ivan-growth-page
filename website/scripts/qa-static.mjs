@@ -28,7 +28,7 @@ try {
         await page.goto(url, { waitUntil: 'networkidle' });
         if (route === '' || route === 'locations/') {
           const photos = await page.locator('main .location-card .location-img img').evaluateAll(images => images.map(img => new URL(img.getAttribute('src'), document.baseURI).pathname));
-          const expected = ['/assets/location-woodroffe.webp', '/assets/location-hemlock.webp'];
+          const expected = ['/assets/location-hemlock.webp', '/assets/location-woodroffe.webp'];
           if (photos.length !== 2 || photos.some((src, i) => !src.endsWith(expected[i]))) throw new Error(`${url}: incorrect branch photos ${photos.join(', ')}`);
           if (await page.locator('main .location-card iframe').count()) throw new Error(`${url}: obsolete map iframe remains`);
         }
