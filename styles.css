@@ -26,3 +26,6 @@
 }
 @media(min-width:700px){.shell{max-width:var(--max)}.hero-photo{inset-inline-start:50%}.hero-copy{max-width:56%}.location-card{max-width:56%}.action{min-height:88px}.action-copy strong{font-size:1rem}.quick-link{min-height:68px}}
 @media(max-width:350px){.hero{min-height:606px;padding-left:16px;padding-right:16px}.logo{width:145px}.hero h1{font-size:2.3rem}.action-copy strong{font-size:.84rem}.quick-link{gap:6px;padding-inline:8px;font-size:.71rem}.quick-icon{width:30px;height:30px;flex-basis:30px}}
+
+/* Keep both branches easy to distinguish without altering the original design. */
+.location-card-secondary{margin-top:12px}
