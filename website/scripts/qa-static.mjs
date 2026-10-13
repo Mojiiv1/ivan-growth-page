@@ -34,7 +34,7 @@ try {
         const footerLinks = await page.locator('#footer a').count();
         if (mainLinks !== 5 || footerLinks < 8) throw new Error(`${url}: incomplete navigation`);
         const axe = await new AxeBuilder({ page }).analyze();
-        if (axe.violations.length) throw new Error(`${url}: axe violations ${axe.violations.map(v => v.id).join(', ')}`);
+        if (axe.violations.length) throw new Error(`${url}: axe violations ${JSON.stringify(axe.violations.map(v => ({ id: v.id, nodes: v.nodes.slice(0, 5).map(n => ({ target: n.target, html: n.html.slice(0, 250), summary: n.failureSummary })) })))}`);
         if (viewport.name === 'mobile') {
           const toggle = page.locator('[data-menu]');
           await toggle.click();
