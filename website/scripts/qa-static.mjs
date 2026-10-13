@@ -26,6 +26,12 @@ try {
         const page = await context.newPage();
         const url = `http://127.0.0.1:4173/${language}${route}`;
         await page.goto(url, { waitUntil: 'networkidle' });
+        if (route === '' || route === 'locations/') {
+          const photos = await page.locator('main .location-card .location-img img').evaluateAll(images => images.map(img => new URL(img.getAttribute('src'), document.baseURI).pathname));
+          const expected = ['/assets/location-woodroffe.webp', '/assets/location-hemlock.webp'];
+          if (photos.length !== 2 || photos.some((src, i) => !src.endsWith(expected[i]))) throw new Error(`${url}: incorrect branch photos ${photos.join(', ')}`);
+          if (await page.locator('main .location-card iframe').count()) throw new Error(`${url}: obsolete map iframe remains`);
+        }
         const failures = await page.locator('img').evaluateAll(images => images.filter(img => img.getAttribute('src') && (!img.complete || !img.naturalWidth)).map(img => img.src));
         if (failures.length) throw new Error(`${url}: broken images ${failures.join(', ')}`);
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
