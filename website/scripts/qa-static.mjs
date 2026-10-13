@@ -32,6 +32,10 @@ try {
           if (photos.length !== 2 || photos.some((src, i) => !src.endsWith(expected[i]))) throw new Error(`${url}: incorrect branch photos ${photos.join(', ')}`);
           if (await page.locator('main .location-card iframe').count()) throw new Error(`${url}: obsolete map iframe remains`);
         }
+        // Ensure lazy images are requested before deciding they are broken.
+        // This preserves production lazy-loading and tests the actual image bytes.
+        await page.locator('img[loading="lazy"]').evaluateAll(images => images.forEach(img => { img.loading = 'eager'; }));
+        await page.waitForFunction(() => [...document.images].every(img => img.complete), null, { timeout: 15000 });
         const failures = await page.locator('img').evaluateAll(images => images.filter(img => img.getAttribute('src') && (!img.complete || !img.naturalWidth)).map(img => img.src));
         if (failures.length) throw new Error(`${url}: broken images ${failures.join(', ')}`);
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
