@@ -23,15 +23,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run build && npm run check && node scripts/audit-source.mjs
       - name: Check browser behaviour against local source
-        run: |
-          node scripts/serve.mjs > /tmp/ivan-preview.log 2>&1 &
-          server_pid=$!
-          trap 'kill "$server_pid"' EXIT
-          for attempt in $(seq 1 20); do
-            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then break; fi
-            sleep 1
-          done
-          npm run test
+        run: npm run test
       - uses: actions/upload-artifact@v4
         if: always()
         with:
